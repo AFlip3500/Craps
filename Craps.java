@@ -45,17 +45,25 @@ public class Craps
                 else
                 {
                     int point = firstroll;
-                    int secondRoll = d1.rollDie() + d2.rollDie();          
-                    System.out.println("Press enter to roll");
-                    String rolling2 = in.nextLine();
-                    System.out.println("You rolled: " + d1.getRoll() + " and " + d2.getRoll() + " for a total of " + secondRoll);
-                    if (secondRoll == point)
+                    int secondRoll = 0;
+                    while (point != 7 && point != secondRoll)
                     {
-                        System.out.println("Congrats you win!");
-                    }
-                    else
-                    {
-                        System.out.println("Sorry you lose...");
+                        System.out.println("Press enter to roll");
+                        String rolling2 = in.nextLine();
+                        secondRoll = d1.rollDie() + d2.rollDie();          
+                        System.out.println("You rolled: " + d1.getRoll() + " and " + d2.getRoll() + " for a total of " + secondRoll);
+                        if (secondRoll == point)
+                        {
+                            System.out.println("Congrats you win!");
+                        }
+                        else if (secondRoll == 7)
+                        {
+                            System.out.println("Sorry you lose...");
+                        }
+                        else
+                        {
+                            System.out.println("Keep rolling...!");
+                        }
                     }
                 }
 
@@ -69,3 +77,24 @@ public class Craps
         }
     }
 }
+
+/*
+
+COMMENTS FROM THE INSTRUCTOR:
+
+You've got some good code in here, and you've got the rules for the first roll
+coded in here just right. For the subsequent rolls, where the player is trying
+to get their point, the program isn't following the rules quite correctly. (Hint:
+it involves rolling a 7.)
+
+I've made a modification to it so that it *does* correctly follow the rules!
+Compare the code that I've put in here with what you had originally, and 
+we can talk about it in class.
+
+Overall, very nice work. Looking forward to going over this in more detail
+with you!
+
+SCORE: 47/50
+
+*/
+
